@@ -1,4 +1,4 @@
-#Vagrant Ansible Sandbox 
+#Vagrant Ansible Sandbox in Virtualbox
 
 - 1 build node, 1 slave node
 
@@ -10,13 +10,14 @@
 
 ##Setup
 
-- Create the master image. (It creates the ssh_key and installs ansible)
+- Pull down the cent6 image
 
-    `vagrant up build_master`
-    
-- Create a the nodes we will deploy things to. (It puts the ssh key in the authorized keys file)
-  
+    `./get_cent6_minimal.sh`
+
+- Create the master image. (It creates the ssh_key and installs ansible) and slave nodes (deploys ssh key)
+
     ```
+    vagrant up build_master
     vagrant up build_ubuntu_slave
     vagrant up build_centos_slave
     ```
