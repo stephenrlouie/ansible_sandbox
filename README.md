@@ -1,6 +1,6 @@
 #Vagrant Ansible Sandbox in Virtualbox
 
-- 1 build node, 1 slave node
+- 1 build node, 2 slave nodes
 
 ##**Steps**
 1. Create "build" images
