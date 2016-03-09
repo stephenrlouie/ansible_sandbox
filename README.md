@@ -14,27 +14,32 @@
 
     `vagrant up build_master`
     
-- Create a node we will deploy things to. (It puts the ssh key in the authorized keys file)
+- Create a the nodes we will deploy things to. (It puts the ssh key in the authorized keys file)
   
-    `vagrant up build_slave`
+    ```
+    vagrant up build_ubuntu_slave
+    vagrant up build_centos_slave
+    ```
 
 - Package up the current image
 
     ```
     vagrant package build_master --output <storage_path>/ansible_master.box
-    vagrant package build_slave --output <storage_path>/ansible_slave.box
+    vagrant package build_ubuntu_slave --output <storage_path>/ansible_ubuntu_slave.box
+    vagrant package build_centos_slave --output <storage_path>/ansible_centos_slave.box
     ```
     
 - Add to vagrant's box list
     
     ```
     vagrant box add ansible_master <storage_path>/ansible_master.box
-    vagrant box add ansible_slave <storage_path>/ansible_slave.box
+    vagrant box add ansible_ubuntu_slave <storage_path>/ansible_ubuntu_slave.box
+    vagrant box add ansible_centos_slave <storage_path>/ansible_centos_slave.box
     ```
     
 - Destroys the build boxes
     
-    `vagrant destroy build_master build_slave -f`
+    `vagrant destroy build_master build_ubuntu_slave build_centos_slave -f`
 
 - Will deploy from the pre-made images, much faster than before for any future tests
     
@@ -53,6 +58,6 @@
 - **To destory slave node and start with a fresh slave node**
     
     ```
-    vagrant destroy slave
-    vagrant up slave
+    vagrant destroy ubuntu_slave centos_slave
+    vagrant up ubuntu_slave centos_slave
     ```
