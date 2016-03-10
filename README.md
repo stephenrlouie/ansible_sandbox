@@ -14,7 +14,7 @@
 
     `./get_cent6_minimal.sh`
 
-- Create the master image. (It creates the ssh_key and installs ansible) and slave nodes (deploys ssh key)
+- Create the build images. The master machine must be first so it can create the ssh_key for the slave nodes.
 
     ```
     vagrant up build_master
